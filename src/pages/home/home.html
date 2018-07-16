@@ -1,14 +1,165 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  <ion-navbar color="app" class="navBar1">
+    <ion-title >QUIZ_Game</ion-title>
+    <br><br>
+    <button  color="btn" ion-button outline (click)="LoginAlert()" >LOGIN</button>
+    <button color="btn" ion-button outline (click)="logoutAlet()" >LOGOUT</button>
+</ion-navbar>
 </ion-header>
+<ion-content paddin class="home_content"> 
+    <button color="app" ion-button outline (click)="RegisterAlert()" >REGISTER</button>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div padding>
+
+    <ion-segment color="app" [(ngModel)]="categories">
+      <ion-segment-button value="science">
+        Science
+      </ion-segment-button>
+      <ion-segment-button value="sport">
+        Sport
+      </ion-segment-button>
+      <ion-segment-button value="technology">
+        Technology
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="categories">
+    
+    <ion-list *ngSwitchCase="'science'">
+        <div class="list-content">
+        <h2>Science Qiuz</h2>
+      <ion-item  style="background-color:#00FFFF !important">
+          <div class="item-content">
+          
+        <div class="img">
+        <ion-thumbnail item-start>
+          <img src="./assets/imgs/science.jpg" align="center">
+        </ion-thumbnail>
+      </div>
+      <br> 
+      <button color="btn" ion-button block outline (click)="scienceAlertAnswer1()" >What are the prime numbers between 50-60?</button>
+     
+    
+      <br>
+      <button color="btn" ion-button block outline (click)="scienceAlertAnswer2()" > Gallons of wine from 1000 pounds of grapes?</button>
+      <br>
+      <button color="btn" ion-button block outline (click)="scienceAlertAnswer3()" >The melting point of the salt sodium chloride is?</button>
+      <br> 
+      
+      <button color="btn" ion-button block outline (click)="scienceAlertAnswer4()" >Tuberculosis is caused by it?</button>
+      <br> 
+      <button color="btn" ion-button block outline (click)="scienceAlertAnswer5()" >A method of growing plants without soil?</button>
+
+      <br>
+
+      <button color="btn" ion-button block outline (click)="ButtonNextScience()" >DONE</button>
+
+  
+      <br>
+
+      <h2>Score : {{totalPointsScience}} / 25</h2>
+
+      
+
+    
+     
+
+   
+      </div>
+      </ion-item>
+    </div>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'sport'">
+        <div class="list-content">
+        <h2>Sport Quiz</h2>
+      <ion-item  style="background-color:#00FFFF !important">
+          <div class="item-content">
+            
+
+        <div class="img">
+        <ion-thumbnail item-start>
+          <img src="./assets/imgs/sports.jpg" align="center">
+        </ion-thumbnail>
+      </div>
+      <br> 
+      <button color="btn" ion-button block outline (click)="sportsAlertAnswer1()" >What do bobsleigh players wear?</button>
+     
+    
+      <br>
+      <button color="btn" ion-button block outline (click)="sportsAlertAnswer2()" >What are the collect a books NFL pro set worth?</button>
+      <br>
+      <button color="btn" ion-button block outline (click)="sportsAlertAnswer3()" >Who has scored the most headers?</button>
+      <br> 
+      
+      <button color="btn" ion-button block outline (click)="sportsAlertAnswer4()" >What names are baseball players given?</button>
+      <br> 
+      <button color="btn" ion-button block outline (click)="sportsAlertAnswer5()" >When was Hines Ward's rookie year?</button>
+      <br>
+
+      <button color="btn" ion-button block outline (click)="ButtonNextSport()" >DONE</button>
+
+  
+      <br>
+
+      <h2>Score : {{totalPointsSports }} / 25</h2>
+
+     
+    </div>
+    
+      </ion-item>
+    </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'technology'">
+        <div class="list-content">
+        <h2>Technology Quiz</h2>
+      <ion-item style="background-color:#00FFFF !important">
+          <div class="item-content">
+            
+              <div class="img">
+         <ion-thumbnail item-start>
+          <img src="./assets/imgs/tech.jpg" align="center">
+        </ion-thumbnail>
+      </div>
+      <br> 
+      <button color="btn" ion-button block outline (click)="techAlertAnswer1()" >What is the data type for 0.38?</button>
+     
+    
+      <br>
+      <button color="btn" ion-button block outline (click)="techAlertAnswer2()" >In terms of computing, what does CPU stand for??</button>
+      <br>
+      <button color="btn" ion-button block outline (click)="techAlertAnswer3()" >What does the abbreviation WWW stand for?</button>
+      <br> 
+      
+      <button color="btn" ion-button block outline (click)="techAlertAnswer4()" >What program language do computer games use?</button>
+      <br> 
+      <button color="btn" ion-button block outline (click)="techAlertAnswer5()" >How interrupts are handled in rtos?</button>
+
+
+
+      <br>
+
+      <button color="btn" ion-button block outline (click)="ButtonNextTech()" >DONE</button>
+
+  
+      <br>
+
+      <h2>Score : {{totalTechPoints}} / 25</h2>
+
+     
+      
+    </div>
+      </ion-item>
+    </div>
+    </ion-list>
+  </div>
+
+
+ 
+
+ 
+
+
 </ion-content>
